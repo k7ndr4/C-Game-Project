@@ -79,6 +79,8 @@ int main(int argc, char** argv) {
             diffStr = "EASY";
             break;
     }
+    
+    
     //START THE GAME
     cout << "\nSTARTING GAME on " <<  diffStr << " DIFFICULTY\n\n";
     
@@ -89,11 +91,14 @@ int main(int argc, char** argv) {
         cout << "Roll the die by inputting 'R', or input anything else to stop your turn.\n";
         cin >> roll;
         
+    //IF THE PLAYER CHOOSES TO CONTINUE ROLLING THE DIE
         if(roll == 'R'){
-            //WHILE LOOP WILL CONTINUE IF THE INPUT WAS 'R'
+            
+            //ROLL THE DIE & OUTPUT THE RESULT
             currRolled = rand()%DIE_SIDES+1;
             cout << "You rolled a " << currRolled << '\n';
 
+            //IF THE DIE ROLL LANDED ON '1' THEN THE PLAYER LOSES THEIR POINTS AND THE TURN # INCREASES
             if(currRolled == 1){
                 points = pointCheckpoint;
                 cout << "Your points have been reverted to " << pointCheckpoint << " points. You are currently on turn: " << currTurn++ << '\n';
@@ -102,6 +107,7 @@ int main(int argc, char** argv) {
                 points += currRolled;
                 cout << "Your current amount of points are: " << points << '\n';
             }
+    //IF THE PLAYER CHOOSES TO MANUALLY END THE TURN
         }else{
             cout << "You have chosen to end your turn. It is currently turn " << currTurn++ <<
                     "\nYou have " << points << " amount of points.\n\n";
