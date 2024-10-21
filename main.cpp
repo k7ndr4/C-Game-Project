@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
             "EASY: " << WIN_CON_EASY << " points\nMEDIUM: " << WIN_CON_MED << " points\nHARD: " << WIN_CON_HARD << " points\n\nin a minimum amount of turns.\n" <<
             "The catch is, if you roll a " << BAD_NUM << " your points will revert back to the amount of points you had since the last time you chose to end a turn manually, and the amount of turns will increase by 1.\n" <<
             "You may end your turn at any time to save the number of points you have, and try to minimize the amount of turns until you reach the desired amount of points.\n" <<
-            "Type " << START_GAME_BTN <<  " to start the game, or type " << EXIT_GAME_BTN << " to exit the program.\n";
+            "Type " << START_GAME_BTN <<  " to start the game, or type " << EXIT_GAME_BTN << " to exit the program.\n\n";
     
     //CAPTURE USER INPUT & START THE GAME IF REQUESTED
     cin >> input;
@@ -53,9 +53,10 @@ int main(int argc, char** argv) {
     string diffStr;
     int currWinCon;
     cout << "Please choose your difficulty...\n" <<
-            "Enter 'E' for Easy (" << WIN_CON_EASY << " points)" <<
-            "Enter 'M' for Medium (" << WIN_CON_MED << " points)" <<
-            "Enter 'H' for Hard (" << WIN_CON_HARD << " points)";
+            "Enter 'E' for Easy (" << WIN_CON_EASY << " points)\n" <<
+            "Enter 'M' for Medium (" << WIN_CON_MED << " points)\n" <<
+            "Enter 'H' for Hard (" << WIN_CON_HARD << " points)\n";
+    cin >> difficulty;
     
     switch(difficulty){
         case 'E': 
@@ -79,8 +80,9 @@ int main(int argc, char** argv) {
             break;
     }
     //START THE GAME
-    cout << "\nSTARTING GAME\n\n";
+    cout << "\nSTARTING GAME on " <<  diffStr << " DIFFICULTY\n\n";
     
+    //GAME LOOP
     char roll;
     int pointCheckpoint;
     while(points < currWinCon){
@@ -94,7 +96,7 @@ int main(int argc, char** argv) {
 
             if(currRolled == 1){
                 points = pointCheckpoint;
-                cout << "You have lost all your points. You are currently on turn: " << currTurn++ << '\n';
+                cout << "Your points have been reverted to " << pointCheckpoint << " points. You are currently on turn: " << currTurn++ << '\n';
                 cout << "\nTURN: " << currTurn << '\n';
             }else{
                 points += currRolled;
