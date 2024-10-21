@@ -42,19 +42,26 @@ int main(int argc, char** argv) {
     cout << "\nSTARTING GAME\n\n";
     
     char roll;
-    while(points >= WIN_CON){
+    while(points < WIN_CON){
         //cout << "TURN: " << currTurn << '\n';
         cout << "Roll the die by inputting 'R', or input anything else to stop your turn.\n";
         cin >> roll;
         
-        //WHILE LOOP WILL CONTINUE IF THE INPUT WAS 'R'
-        currRolled = rand()%DIE_SIDES+1;
-        cout << "You rolled a " << currRolled << '\n';
-        
-        if(currRolled == 1){
-            cout << "You have lost all your points. You are currently on turn: " << currTurn++;
+        if(roll == 'R'){
+            //WHILE LOOP WILL CONTINUE IF THE INPUT WAS 'R'
+            currRolled = rand()%DIE_SIDES+1;
+            cout << "You rolled a " << currRolled << '\n';
+
+            if(currRolled == 1){
+                points = 0;
+                cout << "You have lost all your points. You are currently on turn: " << currTurn++;
+            }else{
+                points += currRolled;
+                cout << "Your current amount of points are: " << points << '\n';
+            }
         }else{
-            cout << "Your current amount of points are: " << points << '\n';
+            cout << "You have chosen to end your turn. It is currently turn " << currTurn++ <<
+                    "\nYou have " << points << " amount of points.\n\n";
         }
     }
     
