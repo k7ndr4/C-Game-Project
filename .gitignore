@@ -2,6 +2,9 @@
 *.patch
 *.orig
 *.rej
+*.o
+*.o.d
+*.exe
 
 *~
 .#*
