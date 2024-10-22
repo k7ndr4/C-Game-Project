@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Project 1 CIS5
+PROJECTNAME=CIS5 Netbeans Game Project 1
 
 # Active Configuration
 DEFAULTCONF=Debug
